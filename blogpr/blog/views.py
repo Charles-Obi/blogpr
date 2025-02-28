@@ -28,3 +28,23 @@ def post_create(request):
     else:
         form = PostCreateForm()
     return render(request, 'blog/post_create.html', {'form': form})
+
+def post_update(request, id):
+    post = get_object_or_404(Post, id=id)
+    if request.method == 'POST':
+        form = PostCreateForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('list')
+    else:
+        form = PostCreateForm(instance=post)
+    return render(request, 'blog/post_update.html', {'form': form})
+
+
+def post_delete(request, id):
+    post = get_object_or_404(Post, id=id)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('list')
+    
+    return render(request, 'blog/post_delete.html', {'post': post})
