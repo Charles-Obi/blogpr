@@ -14,9 +14,15 @@
         <p>datecreated: {{post.date_created}}</p>
     </div>
 
-    <a href="{% url 'update' post.id %}">Update Post</a>
-    <a href="{% url 'delete' post.id %}">Delete Post</a>
-    <a href="{% url 'list' %}">Back to Post lists</a>
+    <p>
+        <a href="{% url 'update' post.id %}">Update Post</a>
+    </p>
+    <p>
+        <a href="{% url 'delete' post.id %}">Delete Post</a>
+    </p>
+    <p>
+        <a href="{% url 'list' %}">Back to Post lists</a>
+    </p>
     
 </body>
 </html>
