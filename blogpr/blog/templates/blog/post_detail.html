@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog: Post details</title>
+</head>
+<body>
+    <h1>Post Details</h1>
+    <div>
+        <p>title: {{post.title}}</p>
+        <p>content: {{post.content}}</p>
+        <p>author: {{post.author}}</p>
+        <p>datecreated: {{post.date_created}}</p>
+    </div>
+
+    <a href="{% url 'list' %}">Back to Post lists</a>
+    
+</body>
+</html>
