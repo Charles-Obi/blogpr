@@ -7,3 +7,7 @@ class PostModel(admin.ModelAdmin):
     
 # Register your models here.
 admin.site.register(Post, PostModel)
+
+admin.site.site_header = 'Authors Blog App'
+admin.site.site_title = 'Book Authors Blog'
+admin.site.index_title = 'Welcome to Writers Blog'

@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from .models import Post
 from .forms import PostCreateForm
 
-
 # Create your views here.
 def hello(request):
     return HttpResponse("This is our Basic Blog!")
