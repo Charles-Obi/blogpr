@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog: Delete</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" ></script>
+    
 </head>
 <body>
     <h1>Delete Post</h1>
@@ -11,7 +16,7 @@
         <form method="post">
             {% csrf_token %}
             <p>Are you sure you want to delete {{post.title}} </p>
-            <button type="submit">Yes, Delete Post</button>
+            <button type="submit" class="btn btn-danger">Yes, Delete Post</button>
         </form>
     </div>
 </body>

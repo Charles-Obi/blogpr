@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Blog: Posts of Blogs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" ></script>
+    
 </head>
 <body>
     <h1>Posts of Blogs</h1>
@@ -18,7 +21,7 @@
             </li>
             {% endfor %}
         </ol>
-        <a href="{% url 'create' %}"> Create a Post</a>
+        <a href="{% url 'create' %}" class="btn btn-secondary"> Create a new Post</a>
     </div>
 </body>
 </html>
