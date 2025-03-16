@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" ></script>
 
+    <style>
+        body{
+            background-image: url("{% static 'images/Ibra.jpg' %}");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+    </style>
 
 </head>
 <body>
@@ -17,7 +27,12 @@
         <form action="{% url 'create' %}" method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-dark">Add Post</button>
+
+            <div class="btn-group">
+                <button type="submit" class="btn btn-dark">Add Post</button>
+                <a href="{% url 'list' %}" class="btn btn-success">Back to Post lists</a>
+            </div>
+
         </form>
     </div>
 </body>

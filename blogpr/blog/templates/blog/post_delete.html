@@ -8,16 +8,34 @@
     {% load static %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" ></script>
+
+    <style>
+        body{
+            background-image: url("{% static 'images/eb.jpg' %}");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        h1{
+            color: white;
+        }
+
+    </style>
     
 </head>
 <body>
-    <h1>Delete Post</h1>
-    <div>
-        <form method="post">
-            {% csrf_token %}
-            <p>Are you sure you want to delete {{post.title}} </p>
-            <button type="submit" class="btn btn-danger">Yes, Delete Post</button>
-        </form>
+    <div class="container mt-5">
+        <h1 class="fw-bold">Delete Post</h1>
+        <div>
+            <form method="post">
+                {% csrf_token %}
+                <p class="text-dark fw-bold">Are you sure you want to delete {{post.title}} </p>
+                <button type="submit" class="btn btn-danger">Yes, Delete Post</button>
+                <a href="{% url 'list' %}" class="btn btn-success">Back to Post lists</a>
+            </form>
+        </div>
     </div>
+
 </body>
 </html>

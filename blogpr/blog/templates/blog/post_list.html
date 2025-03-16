@@ -9,20 +9,58 @@
     <title>Blog: Posts of Blogs</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" ></script>
+
+    <style>
+        img{
+            width: 150px;
+            height: 150px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+        }
+        body{
+            background-image: url("{% static 'images/africa.jpg' %}");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
     
 </head>
 <body>
-    <h1>Posts of Blogs</h1>
-    <div>
-        <ol>
-            {% for post in posts %}
-            <li>
-                <p>title: <a href="{% url 'detail' post.id %}">{{post.title}}</a></p>
-            </li>
-            {% endfor %}
-        </ol>
-        <a href="{% url 'create' %}" class="btn btn-secondary"> Create a new Post</a>
+    <div class="container mgb-3">
+
+        <h1 class=" text-center text-decoration-underline" >Bloggers Arena</h1>
+        <div>
+            <ol>
+                {% for post in posts %}
+                <li>
+                    <p><p class="fw-bold">title:</p><a href="{% url 'detail' post.id %}">{{post.title}}</a></p>
+                </li>
+                {% endfor %}
+            </ol>
+            <a href="{% url 'create' %}" class="btn btn-dark"> Create a new Post</a>
+        </div>
+
+        <div class="container-lg row">
+            <div class="col-3">
+                <img src="{% static 'images/writing1.jpeg' %}" alt="">
+            </div>
+            <div class="col-3">
+                <img src="{% static 'images/w2.jpeg' %}" alt="">
+            </div>
+            <div class="col-3">
+                <img src="{% static 'images/w3.jpeg' %}" alt="">
+            </div>
+           <div class="col-3">
+            <img src="{% static 'images/w4.jpeg' %}" alt="">
+           </div>
+        </div>
+
     </div>
+
+
 </body>
 </html>
 

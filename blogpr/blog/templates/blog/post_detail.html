@@ -7,26 +7,36 @@
     {% load static %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" ></script>
+
+    <style>
+        body{
+            background-image: url("{% static 'images/b.jpg' %}");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+    </style>
     
 </head>
 <body>
-    <h1>Post Details</h1>
-    <div>
-        <p>title: {{post.title}}</p>
-        <p>content: {{post.content}}</p>
-        <p>author: {{post.author}}</p>
-        <p>datecreated: {{post.date_created}}</p>
-    </div>
+    <div class="container mt-5">
 
-    <p>
-        <a href="{% url 'update' post.id %}" class="btn btn-primary">Update Post</a>
-    </p>
-    <p>
-        <a href="{% url 'delete' post.id %}" class="btn btn-danger">Delete Post</a>
-    </p>
-    <p>
-        <a href="{% url 'list' %}" class="btn btn-success">Back to Post lists</a>
-    </p>
+        <h1>Post Details</h1>
+        <div>
+            <p><p class="fw-bold">title:</p>{{post.title}}</p>
+            <p><p class="fw-bold">content:</p>{{post.content}}</p>
+            <p><p class="fw-bold">author:</p>{{post.author}}</p>
+            <p><p class="fw-bold">datecreated:</p>{{post.date_created}}</p>
+        </div>
     
+        <div class="btn-group"> 
+            <a href="{% url 'update' post.id %}" class="btn btn-primary">Update Post</a>  
+            <a href="{% url 'delete' post.id %}" class="btn btn-danger">Delete Post</a>
+            <a href="{% url 'list' %}" class="btn btn-success">Back to Post lists</a>
+        </div>
+
+    </div>
 </body>
 </html>
