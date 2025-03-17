@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from .models import Post
 from .forms import PostCreateForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 def hello(request):
@@ -12,7 +13,17 @@ def index(request):
 
 def post_list(request):
     posts = Post.objects.all()
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    paginator = Paginator(posts, 5, orphans=4, allow_empty_first_page=True)
+    page = request.GET.get('page')
+
+    try:
+        paginated_posts = paginator.page(page)
+    except PageNotAnInteger:
+        paginated_posts = paginator.page(1)
+    except EmptyPage:
+        paginated_posts = paginator.page(paginator.num_pages)
+
+    return render(request, 'blog/post_list.html', {'posts': paginated_posts})
 
 def post_detail(request, id):
     post = get_object_or_404(Post, id=id)

@@ -29,7 +29,7 @@
     
 </head>
 <body>
-    <div class="container mgb-3">
+    <div class="container my-3">
 
         <h1 class=" text-center text-decoration-underline" >Bloggers Arena</h1>
         <div>
@@ -40,10 +40,30 @@
                 </li>
                 {% endfor %}
             </ol>
-            <a href="{% url 'create' %}" class="btn btn-dark"> Create a new Post</a>
+
+            <div class="paginator my-3">
+                <span class="step-links">
+                    {% if posts.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ posts.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+                    </span>
+
+                    {% if posts.has_next %}
+                        <a href="?page={{ posts.next_page_number }}">next</a>
+                        <a href="?page={{ posts.paginator.num_pages }}">&raquo; last </a>
+                    {% endif %}
+                </span>
+            </div>
+
+
+            <a href="{% url 'create' %}" class="btn btn-dark my-3 "> Create a new Post</a>
         </div>
 
-        <div class="container-lg row">
+        <div class="container-lg row my-3">
             <div class="col-3">
                 <img src="{% static 'images/writing1.jpeg' %}" alt="">
             </div>
