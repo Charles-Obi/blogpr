@@ -31,7 +31,7 @@
 <body>
     <div class="container my-3">
 
-        <h1 class=" text-center text-decoration-underline" >Bloggers Arena</h1>
+        <h1 class=" text-center text-decoration-underline" >{{user.username|default:"Anonymous"}} Bloggers Arena</h1>
         <div>
             <ol>
                 {% for post in posts %}
